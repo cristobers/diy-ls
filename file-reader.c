@@ -14,14 +14,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#define RED   "\x1B[31m"
-#define GRN   "\x1B[32m"
-#define YEL   "\x1B[33m"
-#define BLU   "\x1B[34m"
-#define MAG   "\x1B[35m"
-#define CYN   "\x1B[36m"
-#define WHT   "\x1B[37m"
-#define RESET "\x1B[0m"
+#include "colours.h"
 
 void print_directory(DIR* directory, char* path);
 void print_file(char* filename, char* colour);
@@ -108,7 +101,7 @@ void print_file(char* filename, char* colour) {
             return;
         }
         
-        int width = 10;
+        int width = 10; // dont worry about the hardcoded value...
         printf(WHT"%s ", groupuser->gr_name);
         printf(WHT"%s ", pwuser->pw_name);
         printf(YEL"%*lu ", width, file_stats.st_size);
